@@ -7,11 +7,11 @@ if [ "$#" -ne 5 ]; then
 fi
 
 # Define input files for each set of commands
-file1="$1"
-file2="$2"
-file3="$3"
-file4="$4"
-file5="$5"
+file1="test/$1"
+file2="test/$2"
+file3="test/$3"
+file4="test/$4"
+file5="test/$5"
 
 # Check if the input files exist
 for file in "$file1" "$file2" "$file3" "$file4" "$file5"; do
@@ -22,8 +22,8 @@ for file in "$file1" "$file2" "$file3" "$file4" "$file5"; do
 done
 
 # Use input files provided as arguments
-echo " >> Shuffle 500 numbers from 0 to 100000"
-./push_swap $(< "$file1")
+echo " >> Shuffle 500 numbers from 0 to 100000 |wc -l"
+./push_swap $(< "$file1") |wc -l
 echo " >> with: 2 1 3 6 5 8"
 ./push_swap $(< "$file2")
 echo " >> with invalid input: 0 one 2 3 |wc -l"
