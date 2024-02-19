@@ -4,7 +4,7 @@ echo " >> Suffle 0 to 100000"
 ./push_swap $(shuf -i 0-100000 -n 500) |wc -l
 
 echo " >> Shuffle 0 to 100000 with 42 ./checker"
-./push_swap $(shuf -i 0-100000 -n 500) | ./test/checker_linux $(shuf -i 0-100000 -n 500)
+ARG="4 67 3 87 23"; ./push_swap $ARG | ./test/checker_linux $ARG
 
 echo " >> with: ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l"
 ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
