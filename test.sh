@@ -23,9 +23,10 @@ for file in "$file1" "$file2" "$file3" "$file4" "$file5" "$file6"; do
 done
 
 # Use input files provided as arguments
-echo " >> file 1: Shuffle 500 numbers from -1000 to 100000 |wc -l and memory leaks"
-./push_swap $(< "$file1") | ./test/checker_linux $(< "$file1") |wc -l
+echo " >> file 1: Shuffle 500 numbers from -1000 to 100000 and memory leaks"
+./push_swap $(< "$file1") | ./test/checker_linux $(< "$file1") 
 valgrind --leak-check=full ./push_swap $(< "$file1") | wc -l
+
 echo " >> file 2: Shuffle 500 numbers from -1000 to 100000 mit MAX INT"
 ./push_swap $(< "$file2") | ./test/checker_linux $(< "$file2")
 valgrind --leak-check=full ./push_swap $(< "$file2") | wc -l
