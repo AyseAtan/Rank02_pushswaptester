@@ -24,8 +24,9 @@ done
 # Use input files provided as arguments
 echo " >> Shuffle 500 numbers from 0 to 100000 |wc -l"
 ./push_swap $(< "$file1") |wc -l
-echo " >> with: 2 1 3 6 5 8"
-./push_swap $(< "$file2")
+echo " >> with file2"
+#./push_swap $(< "$file2")
+valgrind --leak-check=full --show-leak-kinds=all ./push_swap $(< "$file2") | wc -l
 echo " >> with invalid input: 0 one 2 3 |wc -l"
 ./push_swap $(< "$file3") | wc -l
 echo " >> with 4 67 3 87 23 but ./push_swap $ARG | ./test/checker_linux $ARG"
