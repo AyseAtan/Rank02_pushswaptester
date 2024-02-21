@@ -27,20 +27,20 @@ echo " >> file 1: Shuffle 500 numbers from -1000 to 100000 and memory leaks"
 ./push_swap $(< "$file1") | ./test/checker_linux $(< "$file1") 
 valgrind --leak-check=full ./push_swap $(< "$file1") | wc -l
 
-echo " >> file 2: Shuffle 500 numbers from -1000 to 100000 mit MAX INT"
+echo " >> file 2: Shuffle 500 numbers from -1000 to 100000 mit MAX INT (change >MAX INT to see error handling)"
 ./push_swap $(< "$file2") | ./test/checker_linux $(< "$file2")
 valgrind --leak-check=full ./push_swap $(< "$file2") | wc -l
 
 echo " >> file 3: with invalid input: 0 one 2 3 |wc -l"
 ./push_swap $(< "$file3") | wc -l
 
-echo " >> file 4  but with ./push_swap $ARG | ./test/checker_linux $ARG"
+echo " >> file 4: with ./push_swap $ARG | ./test/checker_linux $ARG"
 ./push_swap $(< "$file4") | ./test/checker_linux $(< "$file4")
 
-echo " >> with file 5: invalid input"
+echo " >> file 5: test with invalid input"
 ./push_swap $(< "$file5")
 
-echo " >> file 6: invalid input"
+echo " >> file 6: test with invalid input"
 ./push_swap $(< "$file6")
 
 
